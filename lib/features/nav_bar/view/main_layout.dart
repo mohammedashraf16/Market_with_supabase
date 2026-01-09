@@ -10,7 +10,12 @@ import 'package:markety/features/store/views/store_view.dart';
 
 class MainLayout extends StatelessWidget {
   MainLayout({super.key});
-  List<Widget> views = [HomeView(), StoreView(), FavoriteView(), ProfileView()];
+  final List<Widget> views = [
+    HomeView(),
+    StoreView(),
+    FavoriteView(),
+    ProfileView(),
+  ];
   @override
   Widget build(BuildContext context) {
     return BlocProvider(

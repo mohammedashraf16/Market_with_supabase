@@ -10,7 +10,7 @@ class RouteGenerator {
   static Route<dynamic> getRoute(RouteSettings settings) {
     switch (settings.name) {
       case Routes.signInRoute:
-        return RouterTransitions.buildVertical(LoginView());
+        return RouterTransitions.build(LoginView());
       case Routes.signUpRoute:
         return RouterTransitions.buildScale(RegisterView());
       case Routes.resetPassowrdRoute:

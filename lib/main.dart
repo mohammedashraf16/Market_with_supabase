@@ -3,7 +3,7 @@ import 'package:markety/config/route_generator.dart';
 import 'package:markety/config/routes.dart';
 import 'package:markety/core/utils/app_colors.dart';
 
-void main() async {
+void main() {
   runApp(const MyApp());
 }
 
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       onGenerateRoute: RouteGenerator.getRoute,
       initialRoute: Routes.signInRoute,
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(scaffoldBackgroundColor: AppColors.kScaffoldColor),
+      theme: ThemeData(scaffoldBackgroundColor: AppColors.kWhiteColor),
     );
   }
 }
