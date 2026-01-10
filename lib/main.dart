@@ -2,8 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:markety/config/route_generator.dart';
 import 'package:markety/config/routes.dart';
 import 'package:markety/core/utils/app_colors.dart';
+import 'package:markety/core/utils/constants.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Supabase.initialize(
+    url: Constants.projectUrl,
+    anonKey: Constants.annonKey,
+  );
   runApp(const MyApp());
 }
 
@@ -16,7 +23,7 @@ class MyApp extends StatelessWidget {
       onGenerateRoute: RouteGenerator.getRoute,
       initialRoute: Routes.signInRoute,
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(scaffoldBackgroundColor: AppColors.kWhiteColor),
+      theme: ThemeData(scaffoldBackgroundColor: AppColors.kScaffoldColor),
     );
   }
 }
