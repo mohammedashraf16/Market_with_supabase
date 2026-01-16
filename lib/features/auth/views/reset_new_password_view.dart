@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:markety/config/routes.dart';
 import 'package:markety/core/utils/app_colors.dart';
 import 'package:markety/core/widgets/custom_btn.dart';
 import 'package:markety/core/widgets/custom_text_form_field.dart';
+import 'package:markety/core/widgets/password_field.dart';
 
-class ForgetPasswordView extends StatelessWidget {
-  const ForgetPasswordView({super.key});
+class ResetNewPasswordView extends StatelessWidget {
+  const ResetNewPasswordView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,29 +17,26 @@ class ForgetPasswordView extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(height: 20),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 20.0),
-                child: Text(
-                  "Forget Your Password",
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                ),
-              ),
               Text(
-                "Please enter your email address to receive a reset token.",
+                "Reset New Password",
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              ),
+              SizedBox(height: 20),
+              Text(
+                "Enter your reset token from your email and set a new password.",
                 style: TextStyle(color: AppColors.kGreyColor),
               ),
+              SizedBox(height: 20),
+              CustomTextFormField(lable: "Reset Token"),
               SizedBox(height: 20),
               CustomTextFormField(
                 lable: "Email",
                 keyboardType: TextInputType.emailAddress,
               ),
               SizedBox(height: 20),
-              CustomBtn(
-                lable: "Send Rest Token",
-                onPressed: () {
-                  Navigator.pushNamed(context, Routes.otpVerificationRoute);
-                },
-              ),
+              PasswordField(),
+              SizedBox(height: 20),
+              CustomBtn(lable: "Reset Password", onPressed: () {}),
             ],
           ),
         ),
