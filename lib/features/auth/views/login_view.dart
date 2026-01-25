@@ -27,12 +27,12 @@ class _LoginViewState extends State<LoginView> {
       child: Scaffold(
         body: BlocConsumer<SignInCubit, SignInState>(
           listener: (context, state) {
-            if (state is SignUpFailure) {
+            if (state is SignInFailure) {
               ScaffoldMessenger.of(
                 context,
               ).showSnackBar(SnackBar(content: Text(state.errorMessage)));
             }
-            if (state is SigInSuccess) {
+            if (state is SigInSuccess || state is GoogleSignInSuccess) {
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(content: Text("Account Logged In successfully!")),
               );
@@ -124,6 +124,11 @@ class _LoginViewState extends State<LoginView> {
                               children: [
                                 Expanded(
                                   child: CustomLoginWithGoogleOrFacebookWidget(
+                                    onPressed: () {
+                                      context
+                                          .read<SignInCubit>()
+                                          .signInWithGoogle();
+                                    },
                                     image: "assets/images/google.png",
                                     lable: "Google",
                                   ),

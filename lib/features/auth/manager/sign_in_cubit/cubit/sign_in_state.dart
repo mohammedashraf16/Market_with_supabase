@@ -13,7 +13,37 @@ final class SigInSuccess extends SignInState {
   SigInSuccess({required this.userModel});
 }
 
-final class SignUpFailure extends SignInState {
+final class SignInFailure extends SignInState {
   final String errorMessage;
-  SignUpFailure(this.errorMessage);
+  SignInFailure(this.errorMessage);
+}
+
+final class ForgetPasswordLoading extends SignInState {}
+
+final class ForgetPasswordSuccess extends SignInState {}
+
+final class ForgetPasswordFailure extends SignInState {
+  final String errorMessage;
+
+  ForgetPasswordFailure({required this.errorMessage});
+}
+
+final class ResetNewPasswordLoading extends SignInState {}
+
+final class ResetNewPasswordSuccess extends SignInState {}
+
+final class ResetNewPasswordFailure extends SignInState {
+  final String errorMessage;
+
+  ResetNewPasswordFailure({required this.errorMessage});
+}
+
+final class GoogleSignInLoading extends SignInState {}
+
+final class GoogleSignInSuccess extends SignInState {}
+
+final class GoogleSignInFailure extends SignInState {
+  final String errorMessage;
+
+  GoogleSignInFailure({required this.errorMessage});
 }
